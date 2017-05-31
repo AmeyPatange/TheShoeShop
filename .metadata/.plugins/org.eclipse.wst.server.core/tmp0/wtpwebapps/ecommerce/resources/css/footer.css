@@ -1,0 +1,95 @@
+@CHARSET "ISO-8859-1";
+
+@media (max-width : 1200px)
+{
+	#hide
+	{
+		display : none;
+	}
+}
+
+
+::selection
+{
+	color : white;
+	background : green;
+}
+
+.jumbotron
+{
+	background:linear-gradient(to bottom ,white , white , OliveDrab);
+	opacity : 0.85;
+	
+}
+
+
+.copyright
+{
+	background-color : whitesmoke;
+	box-shadow : 2px 3px 3px black;
+	
+}
+
+.copyright pre 
+{
+	font-size : 13px;
+	letter-spacing : 1px;
+	text-align : center;
+	height : 70px;
+	white-space : nowrap;
+	border-top : 1px solid OliveDrab;
+	border-bottom : 1px solid OliveDrab;	
+}
+
+.copyright pre  a
+{
+	height : 20px;
+	font-size : 180%;
+	color : black;
+}
+
+.copyright pre #fb:hover
+{
+	color : #00a;
+}
+
+.copyright pre #yt:hover
+{
+	color : OrangeRed;
+}
+
+.copyright pre #tw:hover
+{
+	color : SkyBlue;
+}
+
+.copyright pre #gp:hover
+{
+	color : #e00;
+}
+
+
+.container span
+{
+	color: OliveDrab;
+	font-size : 120%;
+	font-family : Monospace;
+}
+
+.summary li
+{
+	margin-left: 3px;
+	margin-right: 3px;
+	max-width : 200px;
+	font-family : Helvetica;
+	letter-spacing : 1px;
+	border-right : 1px solid OliveDrab;
+	border-radius : 1px;
+	display: inline;
+}
+
+.footerlogo img
+{
+	box-shadow : 2px 1px 7px 1px black;
+	border-right : 1px solid OliveDrab;
+}

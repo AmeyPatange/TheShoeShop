@@ -1,0 +1,9 @@
+package com.ecommerce.dao;
+
+public interface IcategoryDao {
+
+	public String getAllCategory();
+
+	public void addCategory(String name);
+	
+}

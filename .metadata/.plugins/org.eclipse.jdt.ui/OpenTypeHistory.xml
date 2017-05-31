@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=ecommerce/src\/main\/java&lt;com.ecommerce.dao{Iproductdao.java[Iproductdao" modifiers="513" timestamp="1496073683880"/>
+<typeInfo handle="=ecommerce/src\/main\/java&lt;com.ecommerce.service{Iproduct.java[Iproduct" modifiers="513" timestamp="1496073567628"/>
+<typeInfo handle="=ecommerce/src\/main\/java&lt;com.ecommerce.service{IsignUp.java[IsignUp" modifiers="513" timestamp="1495565870444"/>
+<typeInfo handle="=ecommerce/src\/main\/java&lt;com.ecommerce.dao{IuserAddDao.java[IuserAddDao" modifiers="513" timestamp="1495018802446"/>
+<typeInfo handle="=ecommerce/src\/main\/java&lt;com.ecommerce.service{Icandidate.java[Icandidate" modifiers="513" timestamp="1495470603848"/>
+<typeInfo handle="=ecommerce/src\/main\/java&lt;com.ecommerce.dao{CandidateDao.java[CandidateDao" modifiers="513" timestamp="1495470687634"/>
+<typeInfo handle="=ecommerce/src\/main\/java&lt;com.ecommerce.service{Icategory.java[Icategory" modifiers="513" timestamp="1496133258544"/>
+<typeInfo handle="=ecommerce/src\/main\/java&lt;com.ecommerce.dao{IcategoryDao.java[IcategoryDao" modifiers="513" timestamp="1496133341252"/>
+<typeInfo handle="=ecommerce/src\/main\/java&lt;com.ecommerce.service{Isupplier.java[Isupplier" modifiers="513" timestamp="1495711269017"/>
+<typeInfo handle="=ecommerce/src\/main\/java&lt;com.ecommerce.dao{IsupplierDao.java[IsupplierDao" modifiers="513" timestamp="1495711550785"/>
+</typeInfoHistroy>

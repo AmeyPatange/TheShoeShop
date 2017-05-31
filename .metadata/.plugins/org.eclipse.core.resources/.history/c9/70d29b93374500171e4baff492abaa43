@@ -1,0 +1,91 @@
+<%@ include file="header.jsp" %>
+
+	<link rel="stylesheet" href="./resources/css/bootstrap.min.css" type="text/css">
+	<script type="text/javascript" src="./resources/js/bootstrap.min.js"></script>
+	<script src="./resources/js/jquery-3.2.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	
+<style>
+
+.onDiv
+{
+padding:5px;
+padding-top:3px;
+
+}
+
+.onDiv a
+{
+color: white;
+text-decoration: none;
+}
+
+
+.onDiv a:hover
+{
+
+text-decoration: none;
+}
+
+.onDiv:hover
+{
+background: linear-gradient(to top ,black ,  #343, black , #343);
+border-radius: 10px;
+border-left: 1px solid white;
+border-right: 1px solid white;
+}
+
+</style>
+	
+	
+	
+<div class="container-fluid row" style="font-family:courier ; margin-top: 50px;margin-left:0px;background: linear-gradient(to top, black, #343 , black);padding:0px;">
+
+	<div class="col-xs-12 col-md-1" style="border-right:1px solid white;border-radius: 5px;">
+		<form>
+			<div class="row">
+				<label>Category</label>
+				<div style="color: white;letter-spacing: 1px;margin: 1px;">
+					<input type="radio" name="forWhom" value="Men">&nbsp;MEN &nbsp;</input><br>
+					<input type="radio" name="forWhom" value="WOMEN">&nbsp;WOMEN &nbsp;</input><br>
+					<input type="radio" name="forWhom" value="BOTH">&nbsp;BOTH &nbsp;</input>
+				</div>
+				<hr style="margin-top: 2px;"/>	
+			</div>
+			<div class="row" ng-controller="myCtrl">
+				<label>Type</label>
+				<div style="color: white;letter-spacing: 1px;margin: 1px;" ng-repeat="cat in category">
+					<input  type="radio"  name="category" value="{{cat.categoryID}}">&nbsp;{{cat.categoryType}}&nbsp;</input>
+				</div>
+				<hr style="margin-top: 2px;"/>	
+			</div>
+			<div class="row" ng-controller="myCtrl">
+				<label>Brand</label>
+				<div style="color: white;letter-spacing: 1px;margin: 1px;" ng-repeat="brand in brandsList">
+					<input  type="radio"  name="Brand" value="{{brand}}">&nbsp;{{brand}}&nbsp;</input>
+				</div>
+				<hr style="margin-top: 2px;"/>	
+			</div>
+			 <input type="reset" value="Reset" class="btn btn-warning btn-xs">
+		</form>
+		
+	</div>
+	<div class="col-xs-12 col-md-9"  ng-controller="myCtrl" style="margin-left:0px;text-align:center;color: white;letter-spacing:1px; font-family:courier;border-left:1px solid white;padding:0; border-radius:5px;">
+		
+		<div class="panel panel-primary">
+				<div class="panel-heading"></div>
+						<div class="panel-body col-xs-4 col-md-3 onDiv" ng-repeat="prod in pList">
+							<a href="#" ><img src="./resources/images/{{prod.productId}}.jpg"  height="150px" width="200px" />
+							<p>{{prod.productBrand}} {{prod.productName}}</p>			
+							<p><span>&#8377;</span>{{prod.productPrice - (prod.productDiscountPercent / 100) * prod.productPrice | number:0}}  &nbsp;<del style="color:white;font-size:85%;"><span>&#8377;</span> {{prod.productPrice}}</del>&nbsp;<mark style="background-color:white;opacity:0.95;">{{prod.productDiscountPercent}}% off</mark> </p>
+							</a>
+						</div>
+					
+		</div>
+	</div>
+
+
+
+</div>
+<%@ include file="footer.jsp" %>

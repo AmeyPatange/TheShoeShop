@@ -1,0 +1,56 @@
+	
+
+<div class="container-fluid" style="margin-top:38px;">
+	<div class="row">
+		<div class="col-xs-12">
+			<div id="img-carousel" class="carousel slide "  data-ride="carousel">
+				
+				<ul class="carousel-indicators " id="indicate" style="background-color : OliveDrab;opacity : 0.6;">
+				
+					<li data-target="#img-carousel" class="active" data-slide-to="0"></li>
+					<li data-target="#img-carousel" data-slide-to="1"></li>
+					<li data-target="#img-carousel" data-slide-to="2"></li>
+				</ul>
+				
+				<div  class="carousel-inner" style=" box-shadow:2px 2px 15px 3px black ;border-radius: 4px;">
+					<div class="item active" style="background-color :silver;">
+						<a href="#"><img class="img-responsive" alt="Women's Loafers" src="resources/images/carousel1.jpg">
+						<div class="carousel-caption" id="text1" style=" bottom: 18%;">
+							<h3 style="color:OliveDrab;"> Flat 50% OFF</h3>
+							<p  style="color:OliveDrab;">Women's Loafers</p>
+						</div></a>
+					</div>
+					<div class="item">
+						<a href="#"><img src="resources/images/carousel2.jpg" alt="Men's Shoes" class="img-responsive">
+						<div class="carousel-caption" id="text2" style="bottom : 20%; margin-right : 50px;">
+							<h3 style="color:OliveDrab;">Latest Collection</h3>
+							<p  style="color:OliveDrab;">Men's Section</p>
+						</div></a>		
+					</div>
+					<div class="item">
+						<a href="#"><img src="resources/images/carousel3.jpg" alt="Kid's Wear" class="img-responsive">
+						<div class="carousel-caption" id="text3" style="bottom : 27%; margin-right : 20px;">
+							<h3 style="color:OliveDrab;">Avail Discounts</h3>
+							<p  style="color:OliveDrab;">Kids' Area</p>
+						</div></a>		
+					</div>
+						
+				</div>
+				
+				<a href="#img-carousel" class="carousel-control left" data-slide="prev">
+					<i class="glyphicon glyphicon-chevron-left"></i>
+				</a>
+				
+				<a href="#img-carousel" class="carousel-control right" data-slide="next">
+					<i class="glyphicon glyphicon-chevron-right"></i>
+				</a>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+</script>
+<script src="resources/js/bootstrap.min.js"></script>

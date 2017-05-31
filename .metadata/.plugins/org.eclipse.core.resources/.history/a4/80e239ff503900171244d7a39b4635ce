@@ -1,0 +1,35 @@
+package com.ecommerce.daoimpl;
+
+
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.ecommerce.dao.Iproductdao;
+import com.ecommerce.model.Product;
+
+@Repository
+public class ProductDaoImpl implements Iproductdao {
+
+	@Autowired
+	SessionFactory sessionFactory;
+	
+	public void insertProduct(Product prod)
+	{
+		System.out.println("Trying to insert item");
+		Session session = sessionFactory.openSession();
+		System.out.println("Session Opened");
+		Transaction t = session.beginTransaction();
+		
+		session.save(prod);
+		t.commit();
+		System.out.println("Object Saved");
+		session.close();
+		System.out.println("Session Closed");
+	}
+	
+	
+}

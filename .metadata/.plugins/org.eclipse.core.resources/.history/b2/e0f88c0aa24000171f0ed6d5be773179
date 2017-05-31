@@ -1,0 +1,129 @@
+@CHARSET "ISO-8859-1";
+body
+{
+	overflow-x : hidden;
+}
+
+::selection
+{
+	background-color: OliveDrab;
+	color: white;
+}
+a:link , a:visited , a:hover , a:active
+{
+	text-decoration: none;
+}
+
+
+.head
+{
+	background: linear-gradient( to right, DarkGreen ,OliveDrab , green);
+	opacity: 0.9;
+	box-shadow: 0px 1px 10px black;
+	
+}
+.head label, .head a
+{
+	color: white;
+	font-size: 18px;
+	font-family: courier; 
+	letter-spacing: 2px;
+	text-shadow : 1px 1px 0px black;
+}
+.head a
+{
+	font-weight: bold;
+}
+
+ .collapseid2, .collapseid3
+{
+	display: none;
+}
+
+.viewprod, .addprod ,.managesuppliers , .managecategories
+{
+	display: none;
+	
+}
+
+.collapseid2
+{
+	background: linear-gradient(to right , black , #343);
+	
+}
+
+.styling div label
+{
+	letter-spacing: 4px;
+	font-family: courier;
+	
+}
+.styling div input[type="text"], .styling div input[type="password"], .styling div input[type="email"],
+.styling div input[type="tel"], .styling div textarea
+{
+	background-color: #343;
+	border: none;
+	color: white;
+	font-family: courier;
+	letter-spacing: 1px;
+	border-radius : 5px;
+	border-bottom : 5px solid #111;
+}
+
+#hideConfirm
+{
+	display: none;
+}
+
+.addnew
+{
+	display: none;
+	
+}
+
+.selectexisting
+{
+	display: block;
+}
+
+
+.addprod div form div div  input[type="text"], .addprod div form div  div select, 
+.addprod div form div  div input[type="number"], input[type="file"]
+{
+	background-color: #343;
+	border: none;
+	border-radius: 5px;
+	border-bottom: 5px solid black;
+	font-family: courier;
+	letter-spacing: 1px;
+	color: white;;
+	width: 100%;
+}
+
+
+#displayDetails
+{
+	display: none;
+	z-index: 20;
+	position: fixed;
+	background-color: #343;
+	left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+   	background-color: rgba(0,0,0, 0.4);
+  }
+
+.viewprod div div div div input[type="text"]
+{
+	background-color: #343;
+	border: none;
+	letter-spacing: 1px;
+	color: white;
+	opacity: 0.9;
+	border-bottom:2px solid white;
+	border-radius:5px;
+	width: 100%; 
+	z-index: 1;
+}

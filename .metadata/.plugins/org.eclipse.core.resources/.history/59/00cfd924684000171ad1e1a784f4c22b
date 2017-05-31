@@ -1,0 +1,72 @@
+package com.ecommerce.model;
+
+import javax.persistence.*;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name="Supplier")
+@Component
+public class Supplier {
+	
+	@Id
+	@GeneratedValue
+	private int SupplierId;
+	
+	@Column(name="First Name")
+	private String supplierFirstName;
+	
+	@Column(name="Last Name")
+	private String supplierLastName;
+	
+	
+	@Column(name="Address")
+	private String supplierAddress;
+	
+	@Column(name="Email", unique=true)
+	private String supplierEmail;
+
+	public int getSupplierId() {
+		return SupplierId;
+	}
+
+	public void setSupplierId(int supplierId) {
+		SupplierId = supplierId;
+	}
+
+	public String getSupplierFirstName() {
+		return supplierFirstName;
+	}
+
+	public void setSupplierFirstName(String supplierFirstName) {
+		this.supplierFirstName = supplierFirstName;
+	}
+
+	public String getSupplierLastName() {
+		return supplierLastName;
+	}
+
+	public void setSupplierLastName(String supplierLastName) {
+		this.supplierLastName = supplierLastName;
+	}
+
+	public String getSupplierAddress() {
+		return supplierAddress;
+	}
+
+	public void setSupplierAddress(String supplierAddress) {
+		this.supplierAddress = supplierAddress;
+	}
+
+	public String getSupplierEmail() {
+		return supplierEmail;
+	}
+
+	public void setSupplierEmail(String supplierEmail) {
+		this.supplierEmail = supplierEmail;
+	}
+	
+	
+	
+}

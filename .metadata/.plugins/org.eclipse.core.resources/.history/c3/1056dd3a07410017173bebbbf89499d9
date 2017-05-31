@@ -1,0 +1,8 @@
+package com.ecommerce.service;
+
+public interface Icategory {
+
+	public String getAllCategories();
+	
+	void addCategory(String name);
+}
