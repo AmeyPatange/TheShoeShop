@@ -19,7 +19,7 @@ http://www.springframework.org/schema/security/spring-security.xsd">
  			    <security:intercept-url pattern="/" access="permitAll" />
         		<security:intercept-url pattern="index" access="permitAll" />
        			<security:intercept-url pattern="/AdminArea" access="hasRole('ROLE_ADMIN')" />
-       			 <security:form-login login-page="/AdminArea" default-target-url="/AdminArea" authentication-failure-url="/login" />
+       			 <security:form-login login-page="/logincheck" default-target-url="/AdminArea" authentication-failure-url="/login" />
        			 <security:logout logout-success-url="/logout" />
        			 <security:csrf disabled="true"/>
      </security:http>

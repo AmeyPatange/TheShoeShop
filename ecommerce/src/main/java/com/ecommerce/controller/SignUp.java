@@ -6,16 +6,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ecommerce.model.Candidate;
 import com.ecommerce.model.LoginUser;
+import com.ecommerce.service.Icart;
 import com.ecommerce.service.Icategory;
 import com.ecommerce.service.Iproduct;
 import com.ecommerce.service.IsignUp;
 import com.ecommerce.service.Isupplier;
 
 @Controller
+@SessionAttributes({ "id","login" ,"CustomerDetails","cartList"})
 public class SignUp {
 
 	@Autowired
@@ -30,7 +33,8 @@ public class SignUp {
 	@Autowired
 	Isupplier supplier;
 	
-	
+	@Autowired
+	Icart cartService;
 	
 	@RequestMapping("/createUser") // to create new user
 	public ModelAndView creatingUser( @ModelAttribute("user")Candidate cand )
@@ -64,6 +68,8 @@ public class SignUp {
 			System.out.println(cand.signUpFirstName);
 			customerLogin.addObject("id" , cand.getCandidateId());
 			customerLogin.addObject("login" , true);
+			String addedItems = cartService.getProductsAddedToCart(cand.getSignUpEmail());
+			customerLogin.addObject("cartList" ,addedItems);
 			return customerLogin;
 		}
 		if( cand.getUserType().equals("ROLE_ADMIN"))
@@ -83,11 +89,7 @@ public class SignUp {
 		return new ModelAndView("login" , "message", "Something Went Wrong..Please Try Again");
 	}
 	
-	@RequestMapping("AdminArea")  //to be removed
-	public String adminPage()
-	{
-		return "AdminArea";
-	}
+
 	
 
 }

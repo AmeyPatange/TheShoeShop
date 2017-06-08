@@ -17,5 +17,11 @@ public interface Iproductdao {
 		String getAllBrands();		//gets all brands
 		String getDemandedProduct(String string, String string2, String string3); //get a particular product according to men and women
 		String getAllProductsByNameAndBrand(); // product list with only name and brands
+		String getProductByForCategoryBrand(String forWhom, String cat, String brand); // according to three fields
+		String getProductByCategoryAndBrand(String cat, String brand); // according to brand and category
+		String getProductByBrandAndForWhom(String brand, String forWhom); //get product by brand and sex
+		String getProductByBrand(String brand); // product by brand
+		String getProductByCategory(String cat); // product by category
+		String getProductForWhom(String forWhom);// product for Particular Sex
 		
 }

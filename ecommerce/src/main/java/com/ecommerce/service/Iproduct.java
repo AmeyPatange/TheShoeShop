@@ -27,6 +27,18 @@ public interface Iproduct {
 
 	String getProductsByNameAndBrand(); //get all products by only name and brand..
 
+	String getProductByForCategoryBrand(String forWhom, String cat, String brand); //get according to three fields
+
+	String getProductByCategoryAndBrand(String cat, String brand); // get product by category and brand
+
+	String getProductByBrandAndForWhom(String brand, String forWhom); // get brand for particular sex
+
+	String getProductByBrand(String brand); // get product by brand
+
+	String getProductByCategory(String cat); // get product By category
+
+	String getProductForWhom(String forWhom); // get product for particular sex
+
 	
 	
 	

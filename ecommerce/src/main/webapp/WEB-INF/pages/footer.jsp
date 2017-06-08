@@ -14,23 +14,27 @@
 					<span>&nbsp;&nbsp;THE SHOE SHOP</span>
 					<ul class="summary" style="list-style-type : none;">
 						<li><a href="aboutUs">About Us&nbsp;</a></li>
-						<li><a href="#">Contact Us&nbsp;</a></li>
-						<li><a href="#">FAQ&nbsp;</a></li>
+				<!-- 	<li><a href="#">Contact Us&nbsp;</a></li>
+						<li><a href="#">FAQ&nbsp;</a></li> -->	
 					</ul>
 					
 					<span>&nbsp;&nbsp;TOP SELLING BRANDS</span>
 					<ul class="summary" style="list-style-type: none;" ng-controller="myCtrl">
-						<li ng-repeat="li in brandsList"><a href="#">{{li}}&nbsp;</a></li>
+						<li ng-repeat="li in brandsList">
+						
+							<a href="getinfo?Brand={{li}}">{{li}}&nbsp;</a>
+							
+						</li>
 				
 					</ul>
 					
-					<span>&nbsp;&nbsp;HELP</span>
+				<!-- 	<span>&nbsp;&nbsp;HELP</span>
 					<ul class="summary" style="list-style-type: none;">
 						<li><a href="#">Payments&nbsp;</a></li>
 						<li><a href="#">Shipping&nbsp;</a></li>
 						<li><a href="#">Cancellation & Returns&nbsp;</a></li>
 						<li><a href="#">Track Order&nbsp;</a></li>
-					</ul>
+					</ul> -->
 					<hr style=" border-top : 1px solid white ;width : 90%;">
 					<div class="footerlogo" id="hide">
 					<img src="resources/images/logo.jpg" width="154" height="120">

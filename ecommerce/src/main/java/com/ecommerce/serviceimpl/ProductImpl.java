@@ -64,5 +64,23 @@ public class ProductImpl implements Iproduct {
 	public String getProductsByNameAndBrand() {
 		return productDb.getAllProductsByNameAndBrand();
 	}
+	public String getProductByForCategoryBrand(String forWhom, String cat, String brand) {
+		return productDb.getProductByForCategoryBrand( forWhom, cat,brand);
+	}
+	public String getProductByCategoryAndBrand(String cat, String brand) {
+		return productDb.getProductByCategoryAndBrand(cat , brand);
+	}
+	public String getProductByBrandAndForWhom(String brand, String forWhom) {
+		return productDb.getProductByBrandAndForWhom(brand , forWhom);
+	}
+	public String getProductByBrand(String brand) {
+		return productDb.getProductByBrand(brand);
+	}
+	public String getProductByCategory(String cat) {
+		return productDb.getProductByCategory(cat);
+	}
+	public String getProductForWhom(String forWhom) {
+		return productDb.getProductForWhom(forWhom);
+	}
 	
 }

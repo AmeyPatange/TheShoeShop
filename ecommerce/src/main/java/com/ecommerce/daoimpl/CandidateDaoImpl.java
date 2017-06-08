@@ -1,5 +1,7 @@
 package com.ecommerce.daoimpl;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ecommerce.dao.CandidateDao;
 import com.ecommerce.model.Candidate;
+import com.google.gson.Gson;
 
 @Repository
 public class CandidateDaoImpl implements CandidateDao {
@@ -56,6 +59,17 @@ public class CandidateDaoImpl implements CandidateDao {
 		qry.setParameter("id", id);
 		Object o = qry.uniqueResult();
 		Candidate cand = (Candidate)o;
+		return cand;
+	}
+
+
+	public Candidate getCandidateByEmail(String signUpEmail) {
+		
+		Session session = sessionFactory.openSession();
+		Query qry = session.createQuery("From Candidate c where c.signUpEmail=:signUpEmail");
+		qry.setParameter("signUpEmail", signUpEmail);
+		Candidate cand = (Candidate)qry.uniqueResult();
+		
 		return cand;
 	}
 }

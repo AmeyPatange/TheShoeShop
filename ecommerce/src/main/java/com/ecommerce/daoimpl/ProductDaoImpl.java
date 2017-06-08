@@ -173,6 +173,85 @@ public class ProductDaoImpl implements Iproductdao {
 		return completeList;
 	}
 
+	public String getProductByForCategoryBrand(String forWhom, String cat, String brand) {
+		Session session = sessionFactory.openSession();
+		Query qry = session.createQuery("From Product p where p.productCategory=:cat AND p.productSex=:forWhom AND p.productBrand=:brand");
+		qry.setParameter("cat", cat);
+		qry.setParameter("forWhom", forWhom);
+		qry.setParameter("brand", brand);
+		List list = (List)qry.list();
+		
+		Gson gson = new Gson();
+		String prodList = gson.toJson(list);
+		session.close();
+		return prodList;
+	}
+
+	public String getProductByCategoryAndBrand(String cat, String brand) {
+		Session session = sessionFactory.openSession();
+		Query qry = session.createQuery("From Product p where p.productBrand =:brand AND p.productCategory=:cat");
+		qry.setParameter("brand", brand);
+		qry.setParameter("cat", cat);
+		List list = (List)qry.list();
+		
+		Gson gson = new Gson();
+		String productList = gson.toJson(list);
+		session.close();
+		return productList;
+		
+	}
+
+	public String getProductByBrandAndForWhom(String brand, String forWhom) {
+		Session session = sessionFactory.openSession();
+		Query qry = session.createQuery("From Product p Where p.productBrand=:brand AND p.productSex=:forWhom ");
+		qry.setParameter("brand", brand );
+		qry.setParameter("forWhom" , forWhom);
+		List list = (List)qry.list();
+		
+		Gson gson = new Gson();
+		String productList = gson.toJson(list);
+		session.close();
+		return productList;
+	}
+
+	public String getProductByBrand(String brand) {
+		Session session = sessionFactory.openSession();
+		Query qry = session.createQuery("From Product p where p.productBrand=:brand");
+		qry.setParameter("brand", brand);
+		List list = (List)qry.list();
+		
+		Gson gson = new Gson();
+		String productList = gson.toJson(list);
+		session.close();
+		return productList;
+	}
+
+	public String getProductByCategory(String cat) {
+		Session session = sessionFactory.openSession();
+		Query qry = session.createQuery("From Product p where p.productCategory=:cat");
+		qry.setParameter("cat", cat);
+		List list = (List)qry.list();
+		
+		Gson gson = new Gson();
+		String productList = gson.toJson(list);
+		session.close();
+		return productList;
+	}
+
+	public String getProductForWhom(String forWhom) {
+	
+		Session session = sessionFactory.openSession();
+		Query qry = session.createQuery("From Product p where p.productSex=:forWhom");
+		qry.setParameter("forWhom", forWhom);
+		List list = (List)qry.list();
+		
+		Gson gson = new Gson();
+		String productList = gson.toJson(list);
+		session.close();
+		return productList;
+		
+	}
+
 	
 	
 	

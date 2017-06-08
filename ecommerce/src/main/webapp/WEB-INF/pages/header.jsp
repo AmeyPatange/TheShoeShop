@@ -18,7 +18,7 @@
  	
  <script>
  
- 
+
  var login = ${login} 
  var productList = ${productList}
  var casualMenList = ${casualMenList}
@@ -26,7 +26,7 @@
  var sportsList = ${sportsList}
  var category = ${category} 
  var brandsList = ${brandsList}
- 
+ var cartList = ${cartList}
  var prodList = ${product}
  var app = angular.module('myApp', []);
  
@@ -39,7 +39,24 @@
 	 		 console.log("Hi");
 	 		 $scope.pList = prodList;
 	 	} 
-	 
+	 	
+		if(cartList != undefined)
+			{
+				$scope.cartList = cartList;
+				
+				$scope.checkIfPresent = function(prodId)
+				{
+					
+					for( var i =0; i < $scope.cartList.length ; i++)
+						{
+							var idFetched = $scope.cartList[i].productId;
+							if(idFetched == prodId)
+								return true;
+						}
+				}
+			}
+		
+    $('#displayMod').hide();	
 	$scope.productList = productList;
 	$scope.casualMenList = casualMenList;
  	$scope.casualWomenList = casualWomenList;
@@ -47,7 +64,7 @@
  	$scope.brandsList = brandsList;
  	$scope.sportsList= sportsList;
 	$scope.loginCheck = login;
- 	
+	
  	
  	$scope.ul = false;
  	$scope.display = function()
@@ -65,6 +82,52 @@
  	{
  		$scope.ul = false;
  	}
+ 	
+ 	
+ 	
+ 	$scope.displayModal= function(id , prodId , Brand , Name, quantity , amount  , Stock , signUpEmail ,shippingCharges)
+ 	{
+ 		$scope.displayPic = prodId;
+ 		$scope.displayId = id;
+ 		$scope.displayBrand = Brand;
+ 		$scope.displayProdId = prodId;
+ 		$scope.displayName = Name;
+ 		$scope.displayQuantity = quantity;
+ 		$scope.displayAmount = amount;
+ 		$scope.displayStock = Stock;
+ 		$scope.displaysignUpEmail = signUpEmail;
+ 		$scope.shippingCharges = shippingCharges;
+ 		if($scope.displayAmount <1000)
+			$scope.shippingCharges = 50;
+ 		else
+ 			$scope.shippingCharges = 0;
+ 			
+ 		
+ 		console.log("cartId" + id  );
+ 		console.log("productId" + prodId );
+ 		console.log("Brand" + Brand  );
+ 		console.log("Name" + Name  );
+ 		console.log("Quantity" + quantity  );
+ 		console.log("amount" + amount  );
+ 		console.log("Stock" + Stock  );
+ 		console.log(signUpEmail + " " + shippingCharges);
+ 		
+ 		console.log(id);
+ 		$('#displayMod').show();
+ 		
+ 		$scope.changeQuantity = function(min , current , max)
+ 	 	{
+ 	 		console.log(min+" "+current+ " "+max);
+ 	 		$scope.displayQuantity--;
+ 	 	}
+ 	 	$scope.changeQuantity2 = function(min , current , max)
+ 	 	{
+ 	 		console.log(min+" "+current+ " "+max+ "hello"+ $scope.displayStock);
+ 	 		
+ 	 		$scope.displayQuantity++;
+ 	 	}
+	}
+ 	 	
  });
  
 
@@ -101,7 +164,7 @@
 				        			<li class="dropdown">
 						          		<a class="dropdown-toggle txt" data-toggle="dropdown" href="#">Men's Section <span class="caret"></span></a>
 							          		<ul class="dropdown-menu drop">
-							            		<li ng-repeat="li in category"><a href="productDescription?categoryId={{li.categoryID}}&for=Men ">{{li.categoryType}}</a></li>
+							            		<li ng-repeat="li in category"><a href="productDescription?categoryId={{li.categoryID}}&for=Men">{{li.categoryType}}</a></li>
 								          
 								          </ul>
 							        </li>
@@ -117,21 +180,21 @@
 									  	<li class=" dropdown" style="cursor:pointer;">
 								   		<a ng-show="loginCheck" class="dropdown-toggle txt"  data-toggle="dropdown" ><span class="glyphicon glyphicon-user"></span>&nbsp;Welcome ${CustomerDetails.signUpFirstName}&nbsp;<span class="caret"></span></a>     
 								      			<ul class="dropdown-menu drop">	
-								      				<li>Your Account Details</li>
-								      				<li>Your Orders</li>
-								      				<li>Your Cart</li>
-								      				<li>Log Out</li>
+								      				<!-- <li><a>Your Account Details</a></li>
+								      				<li><a>Your Orders</a></li>-->
+								      				<li><a href="checkCart">Your Cart</a></li>
+								      				<li><a href="index">Log Out</a></li>
 								      			</ul>
 								      	
 								     	</li>
 									
-									 <li ng-show="loginCheck" class="logincheck" style="cursor:pointer;">
+									 <li ng-show="loginCheck!=false && cartList!= false" class="dropdown" style="padding-top:10px;padding-left:10px;padding-right:10px;color:OliveDrab;">
 								      
-								      	<a class="btncolor" class="dropdown-toggle txt" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Cart<sup><sup><sup><span class="badge">0</span></sup></sup></sup> </a>
-								      
-								      </li>
-								      
-
+								      	<span class="dropdown-toggle txt"  data-toggle="dropdown">
+								      		 <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Cart<sup><sup><label class="badge" style="background-color: transparent;color: OliveDrab;font-size: 14px;	text-shadow: none;">{{cartList.length}}</label></sup> </sup>
+								      		</span>
+								      </li> 
+								    
 						      </ul>
 								      <ul ng-hide="loginCheck" id="signinfeature" class="nav navbar-nav navbar-right main">
 									        <li><a href="signup" class="txt"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -160,7 +223,7 @@
 			</div>
 			</form>
 				<ul  ng-show="ul" class="searchBox">
-					<li ng-repeat="prod in productList | filter: data | limitTo : 5"><a  href="#">{{prod.productBrand}}&nbsp;{{prod.productName}} for {{prod.productSex}}</a></li>
+					<li ng-repeat="prod in productList | filter: data | limitTo : 5"><a  href="product?prodId={{prod.productId}}">{{prod.productBrand}}&nbsp;{{prod.productName}} for {{prod.productSex}}</a></li>
 				</ul>
 			
 		</div>

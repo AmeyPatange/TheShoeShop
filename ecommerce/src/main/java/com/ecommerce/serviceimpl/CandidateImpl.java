@@ -23,4 +23,9 @@ public class CandidateImpl implements Icandidate {
 		
 		return candDao.getCandidate(id);
 	}
+
+	public Candidate getCandidateByEmail(String signUpEmail) {
+		
+		return candDao.getCandidateByEmail(signUpEmail);
+	}
 }

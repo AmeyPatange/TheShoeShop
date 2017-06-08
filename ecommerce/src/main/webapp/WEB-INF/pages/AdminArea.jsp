@@ -72,7 +72,7 @@ app.filter('customFilter' , function()
 		
   				<div class="col-xs-12 col-xs-offset-4">
   				<button  class="btn btn-success">WELCOME ${AdminDetails.signUpFirstName}!</button>
-  				<a href="logout" ><button  class="btn btn-danger">LOG OUT</button></a>
+  				<a href="index" ><button  class="btn btn-danger">LOG OUT</button></a>
   				</div>
   		</div>
   		<div class="row">
@@ -214,7 +214,7 @@ app.filter('customFilter' , function()
 							<a href="displaymodal?prodid={{prod.productId}}&id=${id} ">
 							<img alt="TheShoeShop" src="resources/images/{{prod.productId}}.jpg" class="img-responsive img-thumbnail" style="height:100px;width:200px;cursor:pointer;">
 							</a>
-
+	
 							</div>
 
 

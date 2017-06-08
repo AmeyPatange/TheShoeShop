@@ -47,8 +47,8 @@ border-right: 1px solid white;
 			<div class="row">
 				<label>Category</label>
 				<div style="color: white;letter-spacing: 1px;margin: 1px;">
-					<input type="radio" name="forWhom" value="Men">&nbsp;MEN &nbsp;</input><br>
-					<input type="radio" name="forWhom" value="WOMEN">&nbsp;WOMEN &nbsp;</input><br>
+					<input type="radio" name="forWhom" value="Men" formaction="hello">&nbsp;MEN &nbsp;</input><br>
+					<input type="radio" name="forWhom" value="Women">&nbsp;WOMEN &nbsp;</input><br>
 					<input type="radio" name="forWhom" value="BOTH">&nbsp;BOTH &nbsp;</input>
 				</div>
 				<hr style="margin-top: 2px;"/>	
@@ -56,7 +56,7 @@ border-right: 1px solid white;
 			<div class="row" ng-controller="myCtrl">
 				<label>Type</label>
 				<div style="color: white;letter-spacing: 1px;margin: 1px;" ng-repeat="cat in category">
-					<input  type="radio"  name="category" value="{{cat.categoryID}}">&nbsp;{{cat.categoryType}}&nbsp;</input>
+					<input  type="radio"  name="category" value="{{cat.categoryType}}">&nbsp;{{cat.categoryType}}&nbsp;</input>
 				</div>
 				<hr style="margin-top: 2px;"/>	
 			</div>
@@ -77,7 +77,9 @@ border-right: 1px solid white;
 		<div class="panel panel-primary">
 				<div class="panel-heading"></div>
 						<div class="panel-body col-xs-4 col-md-3 onDiv" ng-repeat="prod in pList">
-							<a href="#" ><img src="./resources/images/{{prod.productId}}.jpg"  height="150px" width="200px" />
+							<a href="product?prodId={{prod.productId}}" ><img src="./resources/images/{{prod.productId}}.jpg"  height="150px" width="200px" style="position:relative;"/>
+							<label ng-if="loginCheck== true &&  checkIfPresent(prod.productId)" class="glyphicon glyphicon-shopping-cart" style="position: absolute;right:0%;width:100% ;background-color:black ; opacity : 0.8 ;color:white ;text-shadow: none;margin-top:0; ;font-size:20px;"></label>
+				
 							<p>{{prod.productBrand}} {{prod.productName}}</p>			
 							<p><span>&#8377;</span>{{prod.productPrice - (prod.productDiscountPercent / 100) * prod.productPrice | number:0}}  &nbsp;<del style="color:white;font-size:85%;"><span>&#8377;</span> {{prod.productPrice}}</del>&nbsp;<mark style="background-color:white;opacity:0.95;">{{prod.productDiscountPercent}}% off</mark> </p>
 							</a>
@@ -85,7 +87,7 @@ border-right: 1px solid white;
 					
 		</div>
 	</div>
-	<div class="col-xs-12 col-md-2"  ng-controller="myCtrl" style="margin-left:0px;text-align:center;color: white;letter-spacing:1px; font-family:courier;border-left:1px solid white;padding:0; border-radius:5px;">
+	<!-- <div class="col-xs-12 col-md-2"  ng-controller="myCtrl" style="margin-left:0px;text-align:center;color: white;letter-spacing:1px; font-family:courier;border-left:1px solid white;padding:0; border-radius:5px;">
 		
 		<div>
 			<label>Sort By Price</label><br/>
@@ -93,7 +95,7 @@ border-right: 1px solid white;
 			<input type="checkbox" value="">&nbsp;Low To High</input>		
 		</div>
 	</div>
-
+ -->
 </div>
 
 

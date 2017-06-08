@@ -43,7 +43,7 @@ public class HomeController {
 		
 		String categoryList = categories.getAllCategories();
 		session.setAttribute("category", categoryList);
-		
+		session.setAttribute("cartList", false);
 		String productBrands = product.getAllBrands();
 		session.setAttribute("brandsList", productBrands );
 		
@@ -110,9 +110,5 @@ public class HomeController {
 		return "login";
 	}
 	
-	@RequestMapping("ProductDescription")
-	public String productPage()
-	{
-		return "ProductDescription";
-	}
+	
 }
